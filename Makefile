@@ -9,6 +9,7 @@ DIR=$(shell pwd)
 
 INCLUDES = \
 	-I$(DIR) \
+	-I$(DIR)/include \
 	-I$(DIR)/hardware \
 	-I$(DIR)/hardware/arduino \
 	-I$(DIR)/hardware/arduino/cores \
@@ -20,7 +21,7 @@ INCLUDES = \
 	-I$(DIR)/libraries/Wire \
 	-I$(DIR)/libraries/PN532_SPI 
 
-CFLAGS = -fPIC
+CFLAGS = -fPIC -DANDROID
 #CFLAGS = $(INCLUDES)
 #CFLAGS += -march=armv7-a -mfpu=neon
 
@@ -62,6 +63,14 @@ LIB = $(LIB_STATIC) $(LIB_SHARE)
 
 all: $(LIB)
 	make -C sample/
+
+install: all
+	rm install -rf
+	mkdir -p install/include
+	mkdir -p install/lib
+	cp hardware/arduino/cores/arduino/*.h install/include/
+	cp hardware/arduino/variants/sunxi/pins_arduino.h install/include/
+	cp libarduino* install/lib/
 
 
 $(LIB): $(OBJS)

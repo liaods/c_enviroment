@@ -1,0 +1,15 @@
+This project is for building pcduino arduino libs/samples for android platfrom
+
+1. run ./build_for_android.sh to generate libs and header files
+
+2. qt for android notes
+add the following lines to qt project file (*.pro):
+
+LIBS += -L/YOUR_PATH/c_enviroment_android/install/lib/ -larduino
+INCLUDEPATH += /YOUR_PATH/c_enviroment_android/install/include/
+
+NOTE: Please replase YOUR_PATH with the absolute path including c_enviroment_android
+
+
+the toolchain is generated from android ndk:
+./build/tools/make-standalone-toolchain.sh --platform=android-14 --system=linux-x86_64
