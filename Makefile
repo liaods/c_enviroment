@@ -21,7 +21,7 @@ INCLUDES = \
 	-I$(DIR)/libraries/Wire \
 	-I$(DIR)/libraries/PN532_SPI 
 
-CFLAGS = -fPIC -DANDROID
+CFLAGS = -fPIC -DQT_ANDROID
 #CFLAGS = $(INCLUDES)
 #CFLAGS += -march=armv7-a -mfpu=neon
 
@@ -62,7 +62,7 @@ LIB_SHARE = libarduino.so
 LIB = $(LIB_STATIC) $(LIB_SHARE)
 
 all: $(LIB)
-	make -C sample/
+#	make -C sample/
 
 install: all
 	rm install -rf
@@ -75,7 +75,7 @@ install: all
 
 $(LIB): $(OBJS)
 	$(AR) cq $(LIB_STATIC) $(OBJS)
-	$(CXX) -shared -Wl,-soname,$(LIB_SHARE) -o $(LIB_SHARE) $(OBJS)
+#	$(CXX) -shared -Wl,-soname,$(LIB_SHARE) -o $(LIB_SHARE) $(OBJS)
 
 clean:
 	rm -f $(LIB_STATIC) $(LIB_SHARE) $(OBJS)

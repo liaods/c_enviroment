@@ -2,3 +2,5 @@
 *.o
 *.a
 *.so
+/arm-linux-androideabi-4.6/
+/install/

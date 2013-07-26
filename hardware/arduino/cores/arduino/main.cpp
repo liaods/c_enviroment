@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include "Serial.h"
 
+#ifndef QT_ANDROID
+
 int argc;
 char **argv;
 
@@ -22,4 +24,6 @@ int main(int _argc, char **_argv)
         
     return 0;
 }
+
+#endif
 
