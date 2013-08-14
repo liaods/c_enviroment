@@ -1,0 +1,19 @@
+pcDuino demo apk is used to test the hardware interface(GPIO/UART/ADC/PWM) and software API for android platform.
+
+arduino software API   Hardware connection:
+====================================================
+pinMode/digitalRead:   GPIO8 <----> button
+digitalWrite:          TX LED Blinking
+Serial:                0(RX)/1(TX) <----> usb serial
+analogRead:            A0/A1/A2/A3/A4/A5 <-----> battery
+analogWrite:           PWM5/PWM6 <----->  buzzer
+
+the demo application will show debug info via uart(RX0/TX1) interface:
+======================================================================
+pcDuino Demo for qt-android v0.1
+Serial test: Hello, pcDuino
+pinMode/digitalWrite test: blinking TX LED
+digitalRead test: pin level of GPIO8:HIGH
+analogRead test: A0(63)  A1(63)  A2(4095)  A3(4095)  A4(4095)  A5(4095) 
+analogWrite test: PWM5(520 Hz, 50% cycle) PWM6(781 Hz, 25% cycle)
+======================================================================
